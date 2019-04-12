@@ -1,0 +1,38 @@
+{
+  "name": "shoppingcart",
+  "version": "1.0.0",
+  "description": "Shopping Cart Application",
+  "main": "app.js",
+  "scripts": {
+    "build": "tsc",
+    "dev": "ts-node ./src/app.ts",
+    "test": "mocha --require ts-node/register test/**/*.ts",
+    "start": "node ./dist/app.js",
+    "prod": "npm run build && npm start"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/UgurAsaner/shoppingCart-NodeJS.git"
+  },
+  "author": "ugurasaner",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/UgurAsaner/shoppingCart-NodeJS/issues"
+  },
+  "homepage": "https://github.com/UgurAsaner/shoppingCart-NodeJS#readme",
+  "devDependencies": {
+    "@types/chai": "^4.1.7",
+    "@types/mocha": "^5.2.6",
+    "@types/node": "^11.13.2",
+    "chai": "^4.2.0",
+    "mocha": "^6.1.2",
+    "ts-node": "^8.0.3",
+    "typescript": "^3.4.2"
+  },
+  "dependencies": {
+    "@types/readline-sync": "^1.4.3",
+    "async-redis": "^1.1.7",
+    "chalk": "^2.4.2",
+    "readline-sync": "^1.4.9"
+  }
+}
