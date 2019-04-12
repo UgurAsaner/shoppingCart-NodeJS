@@ -2,8 +2,8 @@ import Category from "./Category";
 import { DiscountType } from "./DiscountType";
 import Discount from "./Discounts";
 
-export default class Campaign extends Discount{
-	
+export default class Campaign extends Discount {
+
 	private category: Category;
 	private numberOfItems: number;
 

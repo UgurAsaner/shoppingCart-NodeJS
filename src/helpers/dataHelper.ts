@@ -11,7 +11,7 @@ const data = {
 	CategoryList: [],
 	ProductList: [],
 	CouponList: [],
-	DeliveryCostCalculatorList:[],
+	DeliveryCostCalculatorList: [],
 	Cart: new Cart()
 };
 
@@ -21,8 +21,8 @@ export function createInitialData() {
 	let products: Product[] = [];
 	let coupons: Coupon[] = [];
 	let campaigns: Campaign[] = [];
-	let deliveryCostCalculators: DeliveryCostCalculator[] = []; 
-	
+	let deliveryCostCalculators: DeliveryCostCalculator[] = [];
+
 	categories.push(new Category('Electronics'));
 	categories.push(new Category('Home Electronics', categories[0]));
 	categories.push(new Category('Kitchen Electronics', categories[1]));
@@ -46,7 +46,7 @@ export function createInitialData() {
 
 	data.CategoryList = categories;
 	data.CouponList = coupons;
-	data.ProductList =  products;
+	data.ProductList = products;
 	data.CampaignList = campaigns;
 	data.DeliveryCostCalculatorList = deliveryCostCalculators;
 }
@@ -56,9 +56,9 @@ export function getCart(): Cart {
 }
 
 export function getAllByClass(Class): any[] {
-	try{
+	try {
 		return data[`${Class.name}List`];
-	} catch(e) {
+	} catch (e) {
 		return [];
 	}
 }

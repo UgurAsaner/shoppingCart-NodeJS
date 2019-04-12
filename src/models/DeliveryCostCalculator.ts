@@ -1,15 +1,15 @@
 import ShoppingCart from "./Cart";
 
 export default class DeliveryCostCalculator {
-	
+
 	private costPerDelivery: number;
 	private costPerProduct: number;
 	private fixedCost: number = 2.99;
-	
-	constructor(costPerDelivery: number, costPerProduct: number, fixedCost: number){
+
+	constructor(costPerDelivery: number, costPerProduct: number, fixedCost: number) {
 		this.costPerDelivery = costPerDelivery;
 		this.costPerProduct = costPerProduct;
-		this.fixedCost = fixedCost;		
+		this.fixedCost = fixedCost;
 	}
 
 	public calculateFor(cart: ShoppingCart): number {

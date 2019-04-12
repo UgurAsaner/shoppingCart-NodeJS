@@ -13,6 +13,5 @@ export function getPrintableCoupons() {
 }
 
 export function getCoupons(): Coupon[] {
-	
 	return dataHelper.getAllByClass(Coupon);
 }

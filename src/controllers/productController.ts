@@ -3,7 +3,6 @@ import Category from "../models/Category";
 import * as dataHelper from "../helpers/dataHelper"
 
 export function getPrintabeProducts(products?: Product[]) {
-
 	products = products || getProducts();
 
 	return products.map(
@@ -16,7 +15,6 @@ export function getProducts(): Product[] {
 }
 
 export function getByIndex(index: number): Product {
-	
 	let products = getProducts();
 
 	return products[index];

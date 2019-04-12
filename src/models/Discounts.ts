@@ -6,7 +6,7 @@ export default abstract class Discount {
 	title: string;
 	private discountType: DiscountType;
 
-	constructor (discount: number, discountType: DiscountType) {
+	constructor(discount: number, discountType: DiscountType) {
 		this.discount = discount;
 		this.discountType = discountType;
 		this.title = `${this.getDiscountString()} Discount`;
@@ -21,15 +21,15 @@ export default abstract class Discount {
 	}
 
 	getDiscountString(): string {
-		
+
 		if (this.isRateTyped()) {
 			return `${this.discount}%`;
-		} 
-		
+		}
+
 		return `${this.discount} tl`;
 	}
 
-	isRateTyped () {
+	isRateTyped() {
 		return this.discountType === DiscountType.Rate;
 	}
 }

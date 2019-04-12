@@ -19,7 +19,7 @@ export default class Cart {
 
 	public addItem(product: Product, quantity: number): void {
 		const item = { product, quantity };
-		const itemInList = this.items.find( item => item.product == product);
+		const itemInList = this.items.find(item => item.product == product);
 
 		if (itemInList) {
 			itemInList.quantity += quantity;
@@ -33,7 +33,7 @@ export default class Cart {
 
 	public getPrintableItems() {
 		const printableItems = this.items.map((item) => {
-			
+
 			const product = item.product;
 			const quantity = item.quantity;
 			const unitPrice = product.getPrice();
@@ -71,7 +71,7 @@ export default class Cart {
 		this.totalAmountAfterDiscounts -= this.campaignDiscount;
 		return this;
 	}
-	
+
 	public getCampaignDiscount(): number {
 		return this.campaignDiscount;
 	}
@@ -81,10 +81,10 @@ export default class Cart {
 	}
 
 	public calculateCampaignDiscount(campaigns: Campaign[]) {
-		let discounts = this.calculateCampaignDiscounts(campaigns);	
+		let discounts = this.calculateCampaignDiscounts(campaigns);
 
 		let maxAmountDiscount = discounts.reduce((current, next) => {
-			return current.discount > next.discount ? current : next; 
+			return current.discount > next.discount ? current : next;
 		});
 
 		this.campaignDiscount = maxAmountDiscount.discount;
@@ -105,7 +105,7 @@ export default class Cart {
 			let categoryTotalPrice = productAmounts.totalPrice;
 
 			let discount = campaign.getDiscountAmount(categoryTotalQuantity, categoryTotalPrice);
-			
+
 			campaingDiscounts.push(
 				{
 					campaignTitle: campaign.getTitle(),
@@ -113,7 +113,7 @@ export default class Cart {
 				}
 			);
 		});
-		
+
 		return campaingDiscounts;
 	}
 
@@ -161,16 +161,16 @@ export default class Cart {
 		return allCategories.filter(getDistincts);
 	}
 
-	public calculateCouponDiscount(coupons: Coupon[],campaigns: Campaign[]) {
+	public calculateCouponDiscount(coupons: Coupon[], campaigns: Campaign[]) {
 
 		if (!this.isCampaignDiscountCalculated) {
 			this.calculateCampaignDiscount(campaigns);
 		}
 
-		let discounts = this.calculateCouponDiscounts(coupons);	
+		let discounts = this.calculateCouponDiscounts(coupons);
 
 		let maxAmountDiscount = discounts.reduce((current, next) => {
-			return current.discount > next.discount ? current : next; 
+			return current.discount > next.discount ? current : next;
 		});
 
 		this.couponDiscount = maxAmountDiscount.discount;
@@ -178,14 +178,14 @@ export default class Cart {
 	}
 
 	private calculateCouponDiscounts(coupons: Coupon[]) {
-	
+
 		let couponDiscounts = [];
 		let totalAmountAfterCampaignDiscount = this.totalAmount - this.campaignDiscount;
-	
+
 		coupons.forEach((coupon) => {
 
 			let discount = coupon.getDiscountAmount(totalAmountAfterCampaignDiscount);
-			
+
 			couponDiscounts.push(
 				{
 					couponTitle: coupon.getTitle(),
@@ -193,7 +193,7 @@ export default class Cart {
 				}
 			);
 		});
-		
+
 		return couponDiscounts;
 	}
 
@@ -231,7 +231,7 @@ export default class Cart {
 
 		let productsAmountsPerCategory = {};
 		let productAmounts = this.getProductAmountsByCategories();
-		
+
 		productAmounts.forEach((productAmount) => {
 			let category = productAmount.category;
 			let productQuantity = productAmount.quantity;
@@ -239,24 +239,24 @@ export default class Cart {
 			let currentAmountsOfCategory = productsAmountsPerCategory[category];
 
 			let totalPrice = productQuantity * productPrice;
-			
+
 			if (currentAmountsOfCategory) {
 
-				productsAmountsPerCategory[category] = 
-			
-				{
-					totalQuantity: currentAmountsOfCategory.totalQuantity + productQuantity,
-					totalPrice: currentAmountsOfCategory.totalPrice + totalPrice
-				}
-			
+				productsAmountsPerCategory[category] =
+
+					{
+						totalQuantity: currentAmountsOfCategory.totalQuantity + productQuantity,
+						totalPrice: currentAmountsOfCategory.totalPrice + totalPrice
+					}
+
 			} else {
-				productsAmountsPerCategory[category] = 
-			
-				{
-					totalQuantity: productQuantity,
-					totalPrice: totalPrice
-				}
-			
+				productsAmountsPerCategory[category] =
+
+					{
+						totalQuantity: productQuantity,
+						totalPrice: totalPrice
+					}
+
 			}
 		});
 

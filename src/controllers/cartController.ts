@@ -25,7 +25,7 @@ export function getCampaignDiscountDetails() {
 	const categoriesInCart = cart.getDistinctCategories();
 	const campaignsInCart = campaignController.getCampaigns(categoriesInCart)
 	cart.calculateCampaignDiscount(campaignsInCart);
-	
+
 	return {
 		Title: cart.getDiscountedCampaign(),
 		Amount: cart.getCampaignDiscount()
@@ -38,7 +38,7 @@ export function getCouponDiscountDetails() {
 	const campaignsInCart = campaignController.getCampaigns(categoriesInCart)
 	const couponsAvailable = couponController.getCoupons();
 	cart.calculateCouponDiscount(couponsAvailable, campaignsInCart);
-	
+
 	return {
 		Title: cart.getDiscountedCoupon(),
 		Amount: cart.getCouponDiscount()

@@ -28,7 +28,7 @@ export default class Product {
 		return this.price;
 	}
 
-	public getPrintable(){
+	public getPrintable() {
 		return {
 			title: this.title,
 			price: this.price,

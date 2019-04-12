@@ -2,7 +2,6 @@ import Category from "../models/Category";
 import * as dataHelper from "../helpers/dataHelper"
 
 export function getPrintableCategories() {
-
 	let categories = getCategories();
 
 	return categories.map(
@@ -11,6 +10,5 @@ export function getPrintableCategories() {
 }
 
 export function getCategories(): Category[] {
-
 	return dataHelper.getAllByClass(Category);
 }

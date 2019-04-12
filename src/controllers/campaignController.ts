@@ -4,7 +4,6 @@ import Category from "../models/Category";
 
 
 export function getPrintableCampaigns() {
-
 	let campaigns = getCampaigns();
 
 	return campaigns.map(
@@ -13,7 +12,6 @@ export function getPrintableCampaigns() {
 }
 
 export function getCampaigns(categories?: Category[]): Campaign[] {
-	
 	let campaigns: Campaign[] = dataHelper.getAllByClass(Campaign);
 
 	if (categories && categories.length > 0) {
